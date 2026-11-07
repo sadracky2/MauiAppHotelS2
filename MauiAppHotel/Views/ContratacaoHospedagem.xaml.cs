@@ -6,4 +6,9 @@ public partial class ContratacaoHospedagem : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+		DisplayAlertAsync("Programador: Sadracky Antunes da Silva", "Obrigado por usar este app", "Voltar");
+    }
 }

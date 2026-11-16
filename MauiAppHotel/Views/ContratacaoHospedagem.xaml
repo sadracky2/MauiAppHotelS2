@@ -21,8 +21,7 @@
                            TextColor="#1F2022"/>
                     
                     <Label Grid.Row="0" Grid.Column="1" 
-                           Text="{Binding Value}" 
-                           BindingContext="{x:Reference StepperAdultos}"
+                           Text="{Binding Source={x:Reference StepperAdultos}, Path=Value}"
                            TextColor="#1F2022"/>
 
                     <Stepper x:Name="StepperAdultos" Grid.Row="0" Grid.Column="2" Minimum="1" Maximum="7"/>
@@ -32,11 +31,10 @@
                            TextColor="#1F2022"/>
                     
                     <Label Grid.Row="1" Grid.Column="1" 
-                           Text="{Binding Value}" 
-                           BindingContext="{x:Reference StepperCriancas}" 
+                           Text="{Binding Source={x:Reference StepperCriancas}, Path=Value}"
                            TextColor="#1F2022"/>
-                    
-                    <Stepper x:Name="StepperCriancas" Grid.Row="1" Grid.Column="2" Minimum="1" Maximum="5"/>
+
+                    <Stepper x:Name="StepperCriancas" Grid.Row="1" Grid.Column="2" Minimum="0" Maximum="7"/>
 
                 </Grid>
                 
@@ -44,7 +42,8 @@
                        TextColor="#1F2022"
                        HorizontalTextAlignment="Center"
                        Margin="0, 20, 0, 5"/>
-                <Picker x:Name="PickerQuarto" />
+                <Picker x:Name="PickerQuarto" 
+                        ItemDisplayBinding="{Binding Nome}"/>
                 
                 
                 <Border StrokeShape="RoundRectangle 10"
@@ -58,7 +57,8 @@
                                Text="Data Check-in:" 
                                TextColor="#1F2022"
                                Margin="5, 10, 0, 0"/>
-                        <DatePicker x:Name="DataCheckin" Grid.Row="0" Grid.Column="1"/>
+                        <DatePicker x:Name="DataCheckin" DateSelected="DataCheckin_DateSelected"
+                                    Grid.Row="0" Grid.Column="1"/>
 
                         <Label Grid.Row="1" 
                                Grid.Column="0" 
@@ -70,7 +70,7 @@
                     </Grid>
                 </Border>
 
-                <Button Clicked="Button_Clicked" Text="Sobre" TextColor="#1F2022"/>
+                <Button Clicked="Button_Clicked" Text="Calcular!" TextColor="#1F2022"/>
 
             </VerticalStackLayout>
     </Border>
